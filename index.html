@@ -1,37 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impresión POS con PrinterPlus</title>
-    <style>
-        /* Agrega estilos según tus necesidades */
-    </style>
-</head>
-<body>
-    <h1>Impresión POS con PrinterPlus</h1>
-    <textarea id="print-content" rows="10" cols="30">Texto para imprimir</textarea>
-    <br>
-    <button onclick="printContent()">Imprimir</button>
+<html>
+  <head>
+  </head>
+  <body>
+    <button onclick="window.location='printerplus://send?text='+document.getElementById('report').innerHTML;">
+      Send to Printer+
+    </button>
+    <xmp id="report" >
+      <!-- EL CÓDIGO VA AQUI -->
+      <!-- Tag p sin parámetros -->
+<p>Hola Mundo!</p>
 
-    <script>
-        function printContent() {
-            const content = document.getElementById('print-content').value;
-            
-            // Crear el intent de impresión
-            const intent = 'intent:#Intent;'
-                        + 'action=com.printerplus.intent.action.PRINTRAW;'
-                        + 'category=android.intent.category.DEFAULT;'
-                        + 'type=text/plain;'
-                        + 'S.text=' + encodeURIComponent(content) + ';'
-                        + 'end;';
+<!-- Tag p con tamaño 2 -->
+<p size="2">Hola Mundo!</p>
 
-            // Crear un iframe para enviar el intent a PrinterPlus
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = intent;
-            document.body.appendChild(iframe);
-        }
-    </script>
-</body>
+<!-- Tag p con alineación centrada y color inverso -->
+<p align="1" reversed="1" >Hola Mundo!</p>
+
+<!-- h1 to h7 can't use size, bold -->
+<h1 align='0'>ENCABEZADO 1 IZQUIERDA</h1>
+<h2 align='1'>ENCABEZADO 2 CENTRADO</h2>
+<h3 align='2'>ENCABEZADO 3 DERECHA</h3>
+
+<!-- Como crear una tabla -->
+<table>
+  <tr>
+    <th colspan="2">Description</th>
+    <th >Quantity</th>
+    <th >Price</th>
+  </tr>
+  <tr>
+    <td colspan="2">Item 1</td>
+    <td>1</td>
+    <td>0.99</td>
+  </tr>
+  <tr>
+    <td colspan="2">Item 2</td>
+    <td>3</td>
+    <td>1.00</td>
+  </tr>
+  <tr>
+    <td colspan="2">Item 3</td>
+    <td>2</td>
+    <td>123.45</td>
+  </tr>
+</table>
+
+
+
+    </xmp>
+  </body>
 </html>
