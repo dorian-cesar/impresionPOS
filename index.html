@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresión POS con PrinterPlus</title>
+    <style>
+        /* Agrega estilos según tus necesidades */
+    </style>
+</head>
+<body>
+    <h1>Impresión POS con PrinterPlus</h1>
+    <textarea id="print-content" rows="10" cols="30">Texto para imprimir</textarea>
+    <br>
+    <button onclick="printContent()">Imprimir</button>
+
+    <script>
+        function printContent() {
+            const content = document.getElementById('print-content').value;
+            
+            // Crear el intent de impresión
+            const intent = 'intent:#Intent;'
+                        + 'action=com.printerplus.intent.action.PRINTRAW;'
+                        + 'category=android.intent.category.DEFAULT;'
+                        + 'type=text/plain;'
+                        + 'S.text=' + encodeURIComponent(content) + ';'
+                        + 'end;';
+
+            // Crear un iframe para enviar el intent a PrinterPlus
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = intent;
+            document.body.appendChild(iframe);
+        }
+    </script>
+</body>
+</html>
