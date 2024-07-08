@@ -4,48 +4,29 @@
 </head>
 
 <body>
-  <button onclick="window.location='printerplus://send?text='+document.getElementById('report').innerHTML;">
+  <button onclick="imprimir()">
     Send to Printer+
   </button>
  
-    <xmp style="display:none;">
-      <p>Hola Mundo!</p>
+    
 
-      <!-- Tag p con tamaño 2 -->
-      <p size="2">Hola Mundoooo!</p>
-      
-      <!-- Tag p con alineación centrada y color inverso -->
-      <p align="1" reversed="1" >Hola Mundo!</p>
-      
-      <!-- h1 to h7 can't use size, bold -->
-      <h1 align='0'>ENCABEZADO 1 IZQUIERDA</h1>
-      <h2 align='1'>ENCABEZADO 2 CENTRADO</h2>
-      <h3 align='2'>ENCABEZADO 3 DERECHA</h3>
-      
-      <!-- Como crear una tabla -->
-      <table>
-        <tr>
-          <th colspan="2">Description</th>
-          <th >Quantity</th>
-          <th >Price</th>
-        </tr>
-        <tr>
-          <td colspan="2">Item 1</td>
-          <td>1</td>
-          <td>0.99</td>
-        </tr>
-        <tr>
-          <td colspan="2">Item 2</td>
-          <td>3</td>
-          <td>1.00</td>
-        </tr>
-        <tr>
-          <td colspan="2">Item 3</td>
-          <td>2</td>
-          <td>123.45</td>
-        </tr>
-      </table>
+    <xmp id="report" style="display:none;">
+
+      <p> Hola mundo!!</p>
+      <p>Bienvenido</p>
+      <h3>Titulo</h3>
+  
     </xmp>
+
+    <script>
+
+      
+
+      function imprimir(){
+        window.location='printerplus://send?text='+document.getElementById('report').innerHTML;
+        alert (document.getElementById('report').innerHTML);
+      }
+    </script>
 </body>
 
 </html>
